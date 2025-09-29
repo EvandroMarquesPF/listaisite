@@ -1,0 +1,42 @@
+# Arquivos de configuração sensíveis
+.env
+.env.local
+.env.production
+.env.staging
+
+# Chaves de API (se houver)
+api-keys.json
+config.json
+secrets.json
+
+# Logs
+*.log
+logs/
+
+# Arquivos temporários
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (se usar build tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Cache
+.cache/
+.parcel-cache/

@@ -9,7 +9,66 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize signup count animation
     animateSignupCount();
+    
+    // Initialize mobile menu
+    initializeMobileMenu();
 });
+
+// Mobile Menu Functionality
+function initializeMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+    
+    if (!mobileMenuToggle || !mobileMenuDropdown) return;
+    
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMobileMenu();
+    });
+    
+    // Close mobile menu when clicking links
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenuToggle.contains(e.target) && !mobileMenuDropdown.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenuDropdown.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+}
+
+function toggleMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+    
+    if (mobileMenuToggle && mobileMenuDropdown) {
+        mobileMenuToggle.classList.toggle('active');
+        mobileMenuDropdown.classList.toggle('active');
+    }
+}
+
+function closeMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+    
+    if (mobileMenuToggle && mobileMenuDropdown) {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuDropdown.classList.remove('active');
+    }
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -53,6 +112,34 @@ document.getElementById('betaForm').addEventListener('submit', async function(e)
     submitBtn.disabled = true;
     
     try {
+        // Check if running locally
+        const isLocal = window.location.protocol === 'file:' || 
+                       window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1';
+        
+        if (isLocal) {
+            // Local testing - simulate success
+            console.log('Form data (local test):', {
+                email: email,
+                subject: 'Quero ser um testador',
+                message: `Novo testador beta inscrito: ${email}`,
+                timestamp: new Date().toLocaleString('pt-BR')
+            });
+            
+            // Simulate network delay
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            hideLoadingModal();
+            showSuccessModal();
+            updateSignupCount();
+            this.reset();
+            
+            // Aviso para o usuário
+            console.warn('⚠️ MODO TESTE LOCAL: Email não foi enviado realmente!');
+            console.warn('📧 Para envio real, faça deploy no Netlify');
+            return;
+        }
+        
         // Prepare form data for Netlify
         const formData = new FormData();
         formData.append('form-name', 'beta-signup');
@@ -64,7 +151,10 @@ document.getElementById('betaForm').addEventListener('submit', async function(e)
         // Submit to Netlify Forms
         const response = await fetch('/', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            headers: { 
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'text/html'
+            },
             body: new URLSearchParams(formData).toString()
         });
         
