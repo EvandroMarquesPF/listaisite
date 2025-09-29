@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - ListAI</title>
+    <meta name="description" content="Política de Privacidade do aplicativo ListAI - Lista de Compras Inteligente com IA">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .legal-page {
+            min-height: 100vh;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+        }
+        
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .legal-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .legal-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .legal-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(45deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .legal-subtitle {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            margin-bottom: 8px;
+        }
+        
+        .legal-date {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+        
+        .legal-content {
+            background: #2d2d2d;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid #404040;
+            line-height: 1.8;
+        }
+        
+        .legal-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3b82f6;
+        }
+        
+        .legal-content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .legal-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #10b981;
+            margin: 30px 0 15px 0;
+        }
+        
+        .legal-content p {
+            margin-bottom: 16px;
+            color: #d1d5db;
+        }
+        
+        .legal-content ul, .legal-content ol {
+            margin: 16px 0;
+            padding-left: 30px;
+        }
+        
+        .legal-content li {
+            margin-bottom: 8px;
+            color: #d1d5db;
+        }
+        
+        .legal-content strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .legal-content a {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .legal-content a:hover {
+            color: #10b981;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(45deg, #3b82f6, #10b981);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        .privacy-highlight {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #10b981;
+        }
+        
+        .privacy-highlight h4 {
+            color: #10b981;
+            margin-bottom: 10px;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .data-table th {
+            background: #3b82f6;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid #404040;
+            color: #d1d5db;
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .contact-info {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border: 1px solid #404040;
+        }
+        
+        .contact-info h3 {
+            color: #3b82f6;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .legal-container {
+                padding: 0 15px;
+            }
+            
+            .legal-content {
+                padding: 30px 20px;
+            }
+            
+            .legal-title {
+                font-size: 2rem;
+            }
+            
+            .legal-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .data-table {
+                font-size: 0.9rem;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logosbg.png" alt="ListAI Logo" class="logo-icon">
+                <span class="logo-text">ListAI</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="index.html#features">Funcionalidades</a>
+                <a href="index.html#beta">Beta Test</a>
+                <a href="index.html#contact">Contato</a>
+                <a href="terms.html">Termos de Uso</a>
+                <a href="privacy.html">Política de Privacidade</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Legal Page -->
+    <section class="legal-page">
+        <div class="legal-container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao Início
+            </a>
+            
+            <div class="legal-header">
+                <img src="logo.png" alt="ListAI Logo" class="legal-logo">
+                <h1 class="legal-title">Política de Privacidade</h1>
+                <p class="legal-subtitle">ListAI - Lista de Compras Inteligente com IA</p>
+                <p class="legal-date">Última atualização: 26 de setembro de 2025</p>
+            </div>
+            
+            <div class="legal-content">
+                <h2>1. Introdução</h2>
+                <p>Esta Política de Privacidade descreve como o <strong>ListAI</strong> coleta, usa, armazena e protege suas informações pessoais. Ao usar nosso aplicativo, você concorda com as práticas descritas nesta política.</p>
+                
+                <div class="privacy-highlight">
+                    <h4><i class="fas fa-shield-alt"></i> Compromisso com a Privacidade</h4>
+                    <p>Nosso compromisso é proteger sua privacidade e usar suas informações apenas para melhorar sua experiência com o ListAI.</p>
+                </div>
+                
+                <h2>2. Informações que Coletamos</h2>
+                
+                <h3>2.1 Informações de Conta</h3>
+                <p>Quando você faz login com Google, coletamos:</p>
+                <ul>
+                    <li>Nome completo</li>
+                    <li>Endereço de email</li>
+                    <li>Foto de perfil (opcional)</li>
+                    <li>ID único da conta Google</li>
+                </ul>
+                
+                <h3>2.2 Dados de Uso do Aplicativo</h3>
+                <p>Coletamos informações sobre como você usa o aplicativo:</p>
+                <ul>
+                    <li>Listas de compras criadas</li>
+                    <li>Produtos escaneados</li>
+                    <li>Preferências de configuração</li>
+                    <li>Dados de localização (quando permitido)</li>
+                    <li>Imagens capturadas pela câmera</li>
+                </ul>
+                
+                <h3>2.3 Dados Técnicos</h3>
+                <p>Informações técnicas coletadas automaticamente:</p>
+                <ul>
+                    <li>Modelo do dispositivo</li>
+                    <li>Sistema operacional e versão</li>
+                    <li>Versão do aplicativo</li>
+                    <li>Logs de erro e crash</li>
+                    <li>Dados de performance</li>
+                </ul>
+                
+                <h2>3. Como Usamos suas Informações</h2>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Finalidade</th>
+                            <th>Dados Utilizados</th>
+                            <th>Base Legal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fornecer funcionalidades do app</td>
+                            <td>Dados de conta, listas, produtos</td>
+                            <td>Execução do contrato</td>
+                        </tr>
+                        <tr>
+                            <td>Sincronização entre dispositivos</td>
+                            <td>Dados de conta, preferências</td>
+                            <td>Execução do contrato</td>
+                        </tr>
+                        <tr>
+                            <td>Melhorar IA e sugestões</td>
+                            <td>Dados de uso, produtos escaneados</td>
+                            <td>Interesse legítimo</td>
+                        </tr>
+                        <tr>
+                            <td>Suporte técnico</td>
+                            <td>Dados técnicos, logs</td>
+                            <td>Interesse legítimo</td>
+                        </tr>
+                        <tr>
+                            <td>Desenvolvimento de recursos</td>
+                            <td>Dados de uso anonimizados</td>
+                            <td>Interesse legítimo</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h2>4. Compartilhamento de Informações</h2>
+                
+                <h3>4.1 Serviços de Terceiros</h3>
+                <p>Compartilhamos dados com os seguintes serviços:</p>
+                <ul>
+                    <li><strong>Google Services</strong>: Autenticação, Maps, Cloud Vision</li>
+                    <li><strong>Firebase</strong>: Armazenamento e sincronização</li>
+                    <li><strong>Google ML Kit</strong>: Reconhecimento de texto e códigos</li>
+                </ul>
+                
+                <h3>4.2 Quando Não Compartilhamos</h3>
+                <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros para fins comerciais, exceto:</p>
+                <ul>
+                    <li>Com seu consentimento explícito</li>
+                    <li>Para cumprir obrigações legais</li>
+                    <li>Para proteger nossos direitos</li>
+                </ul>
+                
+                <h2>5. Armazenamento e Segurança</h2>
+                
+                <h3>5.1 Onde Armazenamos</h3>
+                <p>Seus dados são armazenados em:</p>
+                <ul>
+                    <li><strong>Firebase</strong>: Servidores seguros do Google</li>
+                    <li><strong>Dispositivo Local</strong>: Cache e dados offline</li>
+                    <li><strong>Google Cloud</strong>: Processamento de IA</li>
+                </ul>
+                
+                <h3>5.2 Medidas de Segurança</h3>
+                <p>Implementamos:</p>
+                <ul>
+                    <li>Criptografia em trânsito e em repouso</li>
+                    <li>Autenticação segura com Google</li>
+                    <li>Controle de acesso baseado em funções</li>
+                    <li>Monitoramento de segurança 24/7</li>
+                    <li>Backups regulares e seguros</li>
+                </ul>
+                
+                <h2>6. Seus Direitos</h2>
+                
+                <h3>6.1 Direitos de Acesso e Controle</h3>
+                <p>Você tem o direito de:</p>
+                <ul>
+                    <li><strong>Acessar</strong> seus dados pessoais</li>
+                    <li><strong>Corrigir</strong> informações incorretas</li>
+                    <li><strong>Excluir</strong> sua conta e dados</li>
+                    <li><strong>Exportar</strong> seus dados</li>
+                    <li><strong>Restringir</strong> o processamento</li>
+                </ul>
+                
+                <h3>6.2 Como Exercer seus Direitos</h3>
+                <p>Para exercer seus direitos:</p>
+                <ul>
+                    <li>Use as configurações do aplicativo</li>
+                    <li>Entre em contato: evandrotielcop@gmail.com</li>
+                    <li>Resposta em até 30 dias</li>
+                </ul>
+                
+                <h2>7. Retenção de Dados</h2>
+                
+                <h3>7.1 Períodos de Retenção</h3>
+                <ul>
+                    <li><strong>Dados de conta</strong>: Até exclusão da conta</li>
+                    <li><strong>Listas de compras</strong>: Até exclusão pelo usuário</li>
+                    <li><strong>Dados técnicos</strong>: 12 meses</li>
+                    <li><strong>Logs de erro</strong>: 6 meses</li>
+                </ul>
+                
+                <h3>7.2 Exclusão Automática</h3>
+                <p>Dados são automaticamente excluídos após:</p>
+                <ul>
+                    <li>Exclusão da conta pelo usuário</li>
+                    <li>Inatividade por 2 anos</li>
+                    <li>Fim do período de retenção</li>
+                </ul>
+                
+                <h2>8. Cookies e Tecnologias Similares</h2>
+                
+                <h3>8.1 Uso de Cookies</h3>
+                <p>O aplicativo pode usar:</p>
+                <ul>
+                    <li><strong>Cookies essenciais</strong>: Funcionamento básico</li>
+                    <li><strong>Cookies de preferência</strong>: Configurações do usuário</li>
+                    <li><strong>Cookies analíticos</strong>: Melhoria do serviço</li>
+                </ul>
+                
+                <h3>8.2 Controle de Cookies</h3>
+                <p>Você pode controlar cookies através das configurações do seu dispositivo ou navegador.</p>
+                
+                <h2>9. Transferências Internacionais</h2>
+                <p>Seus dados podem ser transferidos e processados em servidores localizados fora do Brasil, incluindo:</p>
+                <ul>
+                    <li>Estados Unidos (Google, Firebase)</li>
+                    <li>Europa (servidores Google)</li>
+                </ul>
+                <p>Essas transferências são protegidas por:</p>
+                <ul>
+                    <li>Cláusulas contratuais padrão</li>
+                    <li>Certificações de adequação</li>
+                    <li>Medidas de segurança adequadas</li>
+                </ul>
+                
+                <h2>10. Menores de Idade</h2>
+                <p>O ListAI não é direcionado a menores de 13 anos. Não coletamos intencionalmente informações de crianças menores de 13 anos. Se descobrirmos que coletamos dados de uma criança, excluiremos essas informações imediatamente.</p>
+                
+                <h2>11. Alterações nesta Política</h2>
+                <p>Podemos atualizar esta Política de Privacidade periodicamente. Alterações significativas serão comunicadas através de:</p>
+                <ul>
+                    <li>Notificação no aplicativo</li>
+                    <li>Email para usuários registrados</li>
+                    <li>Atualização da data nesta página</li>
+                </ul>
+                
+                <h2>12. Base Legal</h2>
+                <p>Processamos seus dados pessoais com base em:</p>
+                <ul>
+                    <li><strong>Consentimento</strong>: Quando você nos dá permissão</li>
+                    <li><strong>Execução de contrato</strong>: Para fornecer o serviço</li>
+                    <li><strong>Interesse legítimo</strong>: Para melhorar o aplicativo</li>
+                    <li><strong>Obrigação legal</strong>: Para cumprir leis aplicáveis</li>
+                </ul>
+                
+                <div class="contact-info">
+                    <h3>Contato sobre Privacidade</h3>
+                    <p><strong>Email:</strong> evandrotielcop@gmail.com</p>
+                    <p><strong>Assunto:</strong> "Privacidade - ListAI"</p>
+                    <p><strong>Resposta:</strong> Até 30 dias úteis</p>
+                    <p><strong>Versão:</strong> 2.2.0 Beta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logosbg.png" alt="ListAI Logo" class="logo-icon">
+                    <span>ListAI</span>
+                </div>
+                <p>&copy; 2024 ListAI. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
