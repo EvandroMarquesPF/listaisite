@@ -94,6 +94,12 @@ body {
     line-height: 1.6;
   color: var(--gray-900);
   background-color: var(--white);
+  background-image: 
+    linear-gradient(rgba(9, 67, 241, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(9, 67, 241, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0;
+  animation: gridMove 20s linear infinite;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -107,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--black);
+  color: var(--primary-blue);
   margin-bottom: var(--space-md);
 }
 
@@ -185,6 +191,62 @@ a:hover {
 
 
 /* ========================================
+   EMOJI ICONS
+   ======================================== */
+
+.emoji-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.feature-icon .emoji-icon,
+.store-feature-icon .emoji-icon,
+.contact-icon .emoji-icon {
+  font-size: 2rem;
+  color: var(--primary-blue);
+}
+
+.beta-badge .emoji-icon {
+  font-size: 1.2rem;
+  color: var(--primary-blue);
+}
+
+.cta-button .emoji-icon {
+  font-size: 1.2rem;
+  margin-right: 8px;
+  color: var(--primary-blue);
+}
+
+.beta-features .emoji-icon {
+  font-size: 1.2rem;
+  margin-right: 8px;
+  color: var(--primary-blue);
+}
+
+/* Mobile optimizations for emojis */
+@media (max-width: 768px) {
+  .emoji-icon {
+    font-size: 1.8rem;
+  }
+  
+  .feature-icon .emoji-icon,
+  .store-feature-icon .emoji-icon,
+  .contact-icon .emoji-icon {
+    font-size: 2.2rem;
+  }
+  
+  /* Lighter grid for mobile */
+  body {
+    background-image: 
+      linear-gradient(rgba(9, 67, 241, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(9, 67, 241, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+}
+
+/* ========================================
    HERO SECTION
    ======================================== */
 
@@ -192,23 +254,15 @@ a:hover {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+    background: var(--white);
     position: relative;
     overflow: hidden;
     padding: var(--space-2xl) 0;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23E5E7EB" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-  opacity: 0.3;
-  z-index: 1;
-}
+/* Removed custom 3D phone - using existing mockup instead */
+
+/* Hero grid background removed - using body grid instead */
 
 .hero-container {
     position: relative;
@@ -255,31 +309,70 @@ a:hover {
     }
 }
 
+@keyframes gridMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 20px 20px;
+    }
+}
+
+/* Removed phoneFloat animation - using existing mockup */
+
+@keyframes phoneScreenChange {
+    0%, 25% {
+        background-image: 
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400"><rect width="200" height="400" fill="%23ffffff" rx="20"/><rect x="20" y="20" width="160" height="360" fill="%23f8f9fa" rx="15"/><rect x="30" y="30" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="55" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">ListAI</text><rect x="30" y="80" width="140" height="200" fill="%23ffffff" rx="8" stroke="%23e5e7eb" stroke-width="1"/><circle cx="50" cy="100" r="15" fill="%230943F1"/><text x="75" y="105" fill="%23374151" font-family="Arial" font-size="12">Assaí Atacadista</text><text x="75" y="120" fill="%236b7280" font-family="Arial" font-size="10">3 itens - R$ 86,49</text><rect x="30" y="130" width="140" height="4" fill="%230943F1" rx="2"/><text x="100" y="145" text-anchor="middle" fill="%230943F1" font-family="Arial" font-size="10">3/3</text><rect x="30" y="300" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="325" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Nova Lista</text></svg>');
+    }
+    25%, 50% {
+        background-image: 
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400"><rect width="200" height="400" fill="%23ffffff" rx="20"/><rect x="20" y="20" width="160" height="360" fill="%23f8f9fa" rx="15"/><rect x="30" y="30" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="55" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">ListAI</text><rect x="30" y="80" width="140" height="200" fill="%23ffffff" rx="8" stroke="%23e5e7eb" stroke-width="1"/><rect x="40" y="90" width="120" height="30" fill="%2322c55e" rx="4"/><text x="100" y="110" text-anchor="middle" fill="white" font-family="Arial" font-size="10">Coca Cola 350ml</text><text x="100" y="125" text-anchor="middle" fill="white" font-family="Arial" font-size="8">R$ 6,00</text><rect x="40" y="130" width="120" height="30" fill="%2322c55e" rx="4"/><text x="100" y="150" text-anchor="middle" fill="white" font-family="Arial" font-size="10">Leite Integral 1LT</text><text x="100" y="165" text-anchor="middle" fill="white" font-family="Arial" font-size="8">R$ 4,59</text><rect x="30" y="300" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="325" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Total: R$ 86,49</text></svg>');
+    }
+    50%, 75% {
+        background-image: 
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400"><rect width="200" height="400" fill="%23000000" rx="20"/><rect x="20" y="20" width="160" height="360" fill="%23111111" rx="15"/><rect x="30" y="30" width="140" height="30" fill="%23333333" rx="8"/><text x="100" y="50" text-anchor="middle" fill="white" font-family="Arial" font-size="12">04:50</text><rect x="30" y="70" width="140" height="200" fill="%23222222" rx="8" stroke="%23444444" stroke-width="1"/><rect x="40" y="80" width="120" height="25" fill="%23333333" rx="4"/><text x="100" y="95" text-anchor="middle" fill="white" font-family="Arial" font-size="8">Onde está comprando...</text><rect x="40" y="110" width="120" height="20" fill="%23333333" rx="4"/><text x="100" y="125" text-anchor="middle" fill="white" font-family="Arial" font-size="8">Lista 16/09/2025 04:05</text><rect x="40" y="140" width="120" height="60" fill="%230943F1" rx="8"/><circle cx="50" cy="155" r="8" fill="white"/><text x="100" y="160" text-anchor="middle" fill="white" font-family="Arial" font-size="8">Foto capturada e analisada</text><text x="100" y="175" text-anchor="middle" fill="white" font-family="Arial" font-size="8">com sucesso!</text><rect x="50" y="185" width="100" height="40" fill="white" rx="4"/><text x="100" y="200" text-anchor="middle" fill="%23333333" font-family="Arial" font-size="6">Leite Parmalat UHT</text><text x="100" y="210" text-anchor="middle" fill="%23333333" font-family="Arial" font-size="6">Integral</text><rect x="30" y="300" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="325" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Adicionar Item</text></svg>');
+    }
+    75%, 100% {
+        background-image: 
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400"><rect width="200" height="400" fill="%23ffffff" rx="20"/><rect x="20" y="20" width="160" height="360" fill="%23f8f9fa" rx="15"/><rect x="30" y="30" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="55" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">ListAI</text><rect x="30" y="80" width="140" height="200" fill="%23ffffff" rx="8" stroke="%23e5e7eb" stroke-width="1"/><circle cx="50" cy="100" r="15" fill="%230943F1"/><text x="75" y="105" fill="%23374151" font-family="Arial" font-size="12">Assaí Atacadista</text><text x="75" y="120" fill="%236b7280" font-family="Arial" font-size="10">3 itens - R$ 86,49</text><rect x="30" y="130" width="140" height="4" fill="%230943F1" rx="2"/><text x="100" y="145" text-anchor="middle" fill="%230943F1" font-family="Arial" font-size="10">3/3</text><rect x="30" y="300" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="325" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Nova Lista</text></svg>');
+    }
+}
+
 .beta-badge {
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
     background: var(--white);
-    color: #1e3a8a;
-    border: 2px solid #1e3a8a;
+    color: var(--primary-blue);
+    border: 4px solid var(--primary-blue);
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--radius-full);
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: var(--space-xl);
-    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+    box-shadow: 0 4px 12px rgba(9, 67, 241, 0.2);
+    transition: all var(--transition-normal);
 }
 
-.beta-badge i {
-  font-size: 1rem;
+.beta-badge:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: scale(1.05);
 }
+
+.beta-badge:hover .emoji-icon {
+    color: var(--white);
+}
+
+/* Beta badge emoji styling handled by .emoji-icon */
 
 .hero-title {
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: var(--space-lg);
-    color: #1e3a8a;
+    color: var(--primary-blue);
     letter-spacing: -0.02em;
 }
 
@@ -308,7 +401,7 @@ a:hover {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 900;
-    color: #1e3a8a;
+    color: var(--primary-blue);
     display: block;
     line-height: 1;
     margin-bottom: var(--space-xs);
@@ -324,16 +417,16 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
-    background: #1e3a8a;
-    color: var(--white) !important;
-    border: none;
+    background: var(--white);
+    color: var(--primary-blue) !important;
+    border: 4px solid var(--primary-blue);
     padding: var(--space-lg) var(--space-2xl);
     border-radius: var(--radius-full);
     font-size: 1.125rem;
     font-weight: 700;
     cursor: pointer;
     transition: all var(--transition-normal);
-    box-shadow: 0 8px 16px rgba(30, 58, 138, 0.3);
+    box-shadow: 0 8px 16px rgba(9, 67, 241, 0.2);
     text-decoration: none;
     position: relative;
     overflow: hidden;
@@ -355,7 +448,7 @@ a:hover {
     left: 100%;
 }
 
-.cta-button i,
+.cta-button .emoji-icon,
 .cta-button span,
 .cta-button * {
     position: relative;
@@ -363,35 +456,48 @@ a:hover {
     color: var(--white) !important;
 }
 
+.button-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(30, 58, 138, 0.4);
-    background: #1e40af;
+    box-shadow: 0 12px 24px rgba(9, 67, 241, 0.4);
+    background: var(--primary-blue);
     color: var(--white) !important;
 }
 
-.cta-button:hover i,
+.cta-button:hover .emoji-icon,
 .cta-button:hover span,
 .cta-button:hover * {
+    color: var(--white) !important;
+}
+
+.cta-button:hover .emoji-icon {
     color: var(--white) !important;
 }
 
 .cta-button:active,
 .cta-button:focus,
 .cta-button:visited {
-    color: var(--white) !important;
+    color: var(--primary-blue) !important;
+    background: var(--white);
+    border: 4px solid var(--primary-blue);
 }
 
-.cta-button:active i,
+.cta-button:active .emoji-icon,
 .cta-button:active span,
 .cta-button:active *,
-.cta-button:focus i,
+.cta-button:focus .emoji-icon,
 .cta-button:focus span,
 .cta-button:focus *,
-.cta-button:visited i,
+.cta-button:visited .emoji-icon,
 .cta-button:visited span,
 .cta-button:visited * {
-    color: var(--white) !important;
+    color: var(--primary-blue) !important;
 }
 
 
@@ -410,7 +516,7 @@ a:hover {
 }
 
 .section-header h2 {
-    color: #1e3a8a;
+    color: var(--primary-blue);
     margin-bottom: var(--space-lg);
 }
 
@@ -453,23 +559,36 @@ a:hover {
   box-shadow: var(--shadow-xl);
 }
 
+.feature-card:hover .feature-icon {
+  background: var(--primary-blue);
+  color: var(--white);
+  transform: scale(1.1);
+  transition: all var(--transition-normal);
+}
+
+.feature-card:hover .feature-icon .emoji-icon {
+  color: var(--white);
+}
+
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #1e3a8a, #000000);
+    background: var(--white);
+    border: 4px solid var(--primary-blue);
     border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: var(--space-lg);
-    color: var(--white);
+    color: var(--primary-blue);
     font-size: 1.5rem;
+    transition: all var(--transition-normal);
 }
 
 .feature-card h3 {
     font-size: 1.5rem;
     font-weight: 700;
-  color: var(--black);
+  color: var(--primary-blue);
   margin-bottom: var(--space-md);
 }
 
@@ -525,21 +644,30 @@ a:hover {
 .store-feature-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #1e3a8a, #000000);
+    background: var(--white);
+    border: 4px solid var(--primary-blue);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: all var(--transition-normal);
 }
 
-.store-feature-icon i {
+.store-feature:hover .store-feature-icon {
+    background: var(--primary-blue);
     color: var(--white);
-    font-size: 20px;
+    transform: scale(1.1);
 }
+
+.store-feature:hover .store-feature-icon .emoji-icon {
+    color: var(--white);
+}
+
+/* Store feature icon emoji styling handled by .emoji-icon */
 
 .store-feature-content h3 {
-    color: #1e3a8a;
+    color: var(--primary-blue);
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 8px;
@@ -560,6 +688,19 @@ a:hover {
     }
 }
 
+/* Responsive Design for Beta Section */
+@media (max-width: 768px) {
+    .beta-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+    
+    .phone-image {
+        max-width: 80%;
+        margin-top: var(--space-lg);
+    }
+}
+
 /* ========================================
    BETA SECTION
    ======================================== */
@@ -570,14 +711,40 @@ a:hover {
 }
 
 .beta-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-4xl);
-    align-items: center;
+  align-items: center;
+}
+
+.phone-mockup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.phone-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  background-image: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400"><rect width="200" height="400" fill="%23ffffff" rx="20"/><rect x="20" y="20" width="160" height="360" fill="%23f8f9fa" rx="15"/><rect x="30" y="30" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="55" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">ListAI</text><rect x="30" y="80" width="140" height="200" fill="%23ffffff" rx="8" stroke="%23e5e7eb" stroke-width="1"/><circle cx="50" cy="100" r="15" fill="%230943F1"/><text x="75" y="105" fill="%23374151" font-family="Arial" font-size="12">Assaí Atacadista</text><text x="75" y="120" fill="%236b7280" font-family="Arial" font-size="10">3 itens - R$ 86,49</text><rect x="30" y="130" width="140" height="4" fill="%230943F1" rx="2"/><text x="100" y="145" text-anchor="middle" fill="%230943F1" font-family="Arial" font-size="10">3/3</text><rect x="30" y="300" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="325" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Nova Lista</text></svg>'),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400"><rect width="200" height="400" fill="%23ffffff" rx="20"/><rect x="20" y="20" width="160" height="360" fill="%23f8f9fa" rx="15"/><rect x="30" y="30" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="55" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">ListAI</text><rect x="30" y="80" width="140" height="200" fill="%23ffffff" rx="8" stroke="%23e5e7eb" stroke-width="1"/><rect x="40" y="90" width="120" height="30" fill="%2322c55e" rx="4"/><text x="100" y="110" text-anchor="middle" fill="white" font-family="Arial" font-size="10">Coca Cola 350ml</text><text x="100" y="125" text-anchor="middle" fill="white" font-family="Arial" font-size="8">R$ 6,00</text><rect x="40" y="130" width="120" height="30" fill="%2322c55e" rx="4"/><text x="100" y="150" text-anchor="middle" fill="white" font-family="Arial" font-size="10">Leite Integral 1LT</text><text x="100" y="165" text-anchor="middle" fill="white" font-family="Arial" font-size="8">R$ 4,59</text><rect x="30" y="300" width="140" height="40" fill="%230943F1" rx="8"/><text x="100" y="325" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Total: R$ 86,49</text></svg>');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: phoneScreenChange 12s ease-in-out infinite;
+}
+
+.phone-image:hover {
+  transform: scale(1.05);
 }
 
 .beta-info h2 {
-    color: #1e3a8a;
+    color: var(--primary-blue);
     margin-bottom: var(--space-lg);
 }
 
@@ -600,10 +767,7 @@ a:hover {
   color: var(--gray-600);
 }
 
-.beta-features li i {
-    color: #1e3a8a;
-    font-size: 1.125rem;
-}
+/* Beta features emoji styling handled by .emoji-icon */
 
 /* ========================================
    CONTACT SECTION
@@ -620,7 +784,7 @@ a:hover {
 }
 
 .contact-content h2 {
-    color: #1e3a8a;
+    color: var(--primary-blue);
     margin-bottom: var(--space-lg);
 }
 
@@ -655,20 +819,32 @@ a:hover {
 .contact-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #1e3a8a, #000000);
+    background: var(--white);
+    border: 4px solid var(--primary-blue);
     border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--space-lg);
-    color: var(--white);
+    color: var(--primary-blue);
     font-size: 1.5rem;
+    transition: all var(--transition-normal);
+}
+
+.contact-method:hover .contact-icon {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.contact-method:hover .contact-icon .emoji-icon {
+    color: var(--white);
 }
 
 .contact-info h4 {
   font-size: 1.25rem;
     font-weight: 700;
-  color: var(--black);
+  color: var(--primary-blue);
   margin-bottom: var(--space-sm);
 }
 
@@ -782,6 +958,12 @@ a:hover {
     .footer-links {
         flex-direction: column;
         gap: var(--space-md);
+    }
+    
+    /* Mobile phone mockup adjustments */
+    .phone-image {
+        max-width: 80%;
+        margin-top: var(--space-lg);
     }
 }
 
@@ -904,6 +1086,14 @@ a:hover {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  
+  body {
+    animation: none;
+  }
+  
+  .phone-image {
+    animation: none;
   }
 }
 

@@ -1,0 +1,84 @@
+{
+  "name": "ListAI Icons",
+  "version": "1.0.0",
+  "description": "Optimized SVG icons for ListAI website",
+  "icons": [
+    {
+      "name": "rocket",
+      "file": "rocket.svg",
+      "description": "Rocket icon for beta badge"
+    },
+    {
+      "name": "download",
+      "file": "download.svg", 
+      "description": "Download icon for CTA buttons"
+    },
+    {
+      "name": "brain",
+      "file": "brain.svg",
+      "description": "Brain icon for AI features"
+    },
+    {
+      "name": "qrcode",
+      "file": "qrcode.svg",
+      "description": "QR code icon for scanner features"
+    },
+    {
+      "name": "users",
+      "file": "users.svg",
+      "description": "Users icon for collaboration features"
+    },
+    {
+      "name": "chart-line",
+      "file": "chart-line.svg",
+      "description": "Chart icon for analytics features"
+    },
+    {
+      "name": "store",
+      "file": "store.svg",
+      "description": "Store icon for store integration"
+    },
+    {
+      "name": "mobile-alt",
+      "file": "mobile-alt.svg",
+      "description": "Mobile icon for interface features"
+    },
+    {
+      "name": "map-marker-alt",
+      "file": "map-marker-alt.svg",
+      "description": "Map marker icon for location features"
+    },
+    {
+      "name": "search-dollar",
+      "file": "search-dollar.svg",
+      "description": "Search dollar icon for price comparison"
+    },
+    {
+      "name": "route",
+      "file": "route.svg",
+      "description": "Route icon for navigation features"
+    },
+    {
+      "name": "clock",
+      "file": "clock.svg",
+      "description": "Clock icon for time features"
+    },
+    {
+      "name": "check",
+      "file": "check.svg",
+      "description": "Check icon for success states"
+    },
+    {
+      "name": "envelope",
+      "file": "envelope.svg",
+      "description": "Envelope icon for contact features"
+    }
+  ],
+  "mobile_optimizations": {
+    "touch_targets": "44px minimum",
+    "high_dpi_support": true,
+    "reduced_motion_support": true,
+    "dark_mode_support": true,
+    "print_optimized": true
+  }
+}

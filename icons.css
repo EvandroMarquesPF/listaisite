@@ -1,0 +1,117 @@
+/* ========================================
+   LISTAI - MOBILE OPTIMIZED ICONS
+   SVG Icons for Mobile Performance
+   ======================================== */
+
+/* Icon Base Styles */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0;
+  vertical-align: middle;
+}
+
+/* Icon Sizes */
+.icon-xs { width: 0.75rem; height: 0.75rem; }
+.icon-sm { width: 1rem; height: 1rem; }
+.icon-md { width: 1.25rem; height: 1.25rem; }
+.icon-lg { width: 1.5rem; height: 1.5rem; }
+.icon-xl { width: 2rem; height: 2rem; }
+.icon-2xl { width: 3rem; height: 3rem; }
+
+/* Icon Colors */
+.icon-primary { color: var(--primary-blue); }
+.icon-secondary { color: var(--secondary-green); }
+.icon-white { color: var(--white); }
+.icon-gray { color: var(--gray-500); }
+.icon-dark { color: var(--gray-900); }
+
+/* Icon Animations */
+.icon-spin {
+  animation: icon-spin 1s linear infinite;
+}
+
+.icon-pulse {
+  animation: icon-pulse 2s infinite;
+}
+
+.icon-bounce {
+  animation: icon-bounce 1s infinite;
+}
+
+@keyframes icon-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes icon-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes icon-bounce {
+  0%, 20%, 53%, 80%, 100% { transform: translate3d(0, 0, 0); }
+  40%, 43% { transform: translate3d(0, -8px, 0); }
+  70% { transform: translate3d(0, -4px, 0); }
+  90% { transform: translate3d(0, -2px, 0); }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .icon {
+    width: 1.2em;
+    height: 1.2em;
+  }
+  
+  .icon-xs { width: 1rem; height: 1rem; }
+  .icon-sm { width: 1.2rem; height: 1.2rem; }
+  .icon-md { width: 1.5rem; height: 1.5rem; }
+  .icon-lg { width: 1.8rem; height: 1.8rem; }
+  .icon-xl { width: 2.2rem; height: 2.2rem; }
+}
+
+/* Touch Targets for Mobile */
+@media (max-width: 768px) {
+  .icon-button {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .icon {
+    shape-rendering: geometricPrecision;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .icon {
+    filter: brightness(0.9);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .icon-spin,
+  .icon-pulse,
+  .icon-bounce {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .icon {
+    fill: black !important;
+    stroke: black !important;
+  }
+}
