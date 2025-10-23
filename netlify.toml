@@ -10,6 +10,18 @@
   to = "/success.html"
   status = 200
 
+# Deep links para códigos de convite
+[[redirects]]
+  from = "/join/*"
+  to = "/join.html"
+  status = 200
+
+# Verificação do domínio para Android
+[[redirects]]
+  from = "/.well-known/assetlinks.json"
+  to = "/.well-known/assetlinks.json"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

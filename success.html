@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .success-page {
@@ -16,69 +16,279 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .success-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23E5E7EB" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            z-index: 1;
         }
         
         .success-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            background: #ffffff;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(9, 67, 241, 0.1);
+            border-radius: 24px;
             padding: 60px 40px;
             text-align: center;
             max-width: 500px;
             width: 100%;
+            box-shadow: 0 20px 40px rgba(9, 67, 241, 0.1);
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
         }
         
         .success-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, #1e3a8a, #000000);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 30px;
-            font-size: 2rem;
+            margin: 0 auto 24px;
             color: white;
+            font-size: 32px;
+            animation: successPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes successPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(34, 197, 94, 0);
+            }
         }
         
         .success-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #0943F1;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
         
         .success-message {
-            font-size: 1.2rem;
-            color: #d1d5db;
-            margin-bottom: 40px;
+            font-size: 1.125rem;
+            color: #6B7280;
+            margin-bottom: 32px;
             line-height: 1.6;
         }
         
-        .success-btn {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            border: none;
-            padding: 15px 30px;
+        .success-details {
+            background: #f8f9fa;
             border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            padding: 24px;
+            margin-bottom: 32px;
+            border-left: 4px solid #0943F1;
         }
         
-        .success-btn:hover {
+        .success-details h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 16px;
+        }
+        
+        .success-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .success-details li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+        
+        .success-details li i {
+            color: #22C55E;
+            font-size: 1rem;
+        }
+        
+        .success-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e3a8a, #000000);
+            color: white;
+            box-shadow: 0 8px 16px rgba(30, 58, 138, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary i,
+        .btn-primary span {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 12px 24px rgba(30, 58, 138, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(30, 58, 138, 0.1);
+            color: #1e3a8a;
+            border: 2px solid rgba(30, 58, 138, 0.2);
+        }
+        
+        .btn-secondary i,
+        .btn-secondary span {
+            position: relative;
+            z-index: 2;
+            color: #1e3a8a;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(30, 58, 138, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary:hover i,
+        .btn-secondary:hover span {
+            color: #1e3a8a;
+        }
+        
+        .countdown {
+            background: linear-gradient(135deg, rgba(9, 67, 241, 0.1), rgba(34, 197, 94, 0.1));
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+            border: 1px solid rgba(9, 67, 241, 0.2);
+        }
+        
+        .countdown h4 {
+            color: #0943F1;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .timer-unit {
+            text-align: center;
+        }
+        
+        .timer-number {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #0943F1;
+            display: block;
+        }
+        
+        .timer-label {
+            font-size: 0.75rem;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1e3a8a, #000000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
+        }
+        
+        @media (max-width: 600px) {
+            .success-card {
+                margin: 20px;
+                padding: 40px 24px;
+            }
+            
+            .success-title {
+                font-size: 1.75rem;
+            }
+            
+            .success-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .countdown-timer {
+                gap: 12px;
+            }
+            
+            .timer-number {
+                font-size: 1.25rem;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -86,17 +296,164 @@
     <div class="success-page">
         <div class="success-card">
             <div class="success-icon">
-                <i class="fas fa-check"></i>
+                <i class="fas fa-check" aria-hidden="true"></i>
             </div>
             <h1 class="success-title">Inscrição Confirmada!</h1>
             <p class="success-message">
-                Você foi adicionado à nossa lista de testadores beta. 
-                Em breve enviaremos instruções para download do ListAI.
+                Obrigado por se inscrever no beta do ListAI! Você receberá um email de confirmação em breve.
             </p>
-            <a href="index.html" class="success-btn">
-                <i class="fas fa-arrow-left"></i> Voltar ao Site
-            </a>
+            
+            <div class="success-details">
+                <h3>O que acontece agora?</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Email de confirmação enviado</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <span>Acesso ao beta em até 24h</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                        <span>Link de download no seu email</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-headset" aria-hidden="true"></i>
+                        <span>Suporte prioritário ativo</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="countdown">
+                <h4>Próximo lançamento em:</h4>
+                <div class="countdown-timer" id="countdown">
+                    <div class="timer-unit">
+                        <span class="timer-number" id="days">00</span>
+                        <span class="timer-label">Dias</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-number" id="hours">00</span>
+                        <span class="timer-label">Horas</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-number" id="minutes">00</span>
+                        <span class="timer-label">Min</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-number" id="seconds">00</span>
+                        <span class="timer-label">Seg</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.875rem; color: #6B7280; margin: 0;">
+                    Versão completa será lançada em janeiro de 2025
+                </p>
+            </div>
+            
+            <div class="success-actions">
+                <a href="index.html" class="btn-primary">
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                    Voltar ao Início
+                </a>
+                <a href="https://forms.gle/iiVw3NMWsWNt1HaVA" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    Entrar em Contato
+                </a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const launchDate = new Date('2025-01-15T00:00:00').getTime();
+            const distance = launchDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<div class="timer-unit"><span class="timer-number">00</span><span class="timer-label">Lançado!</span></div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate success icon
+            const successIcon = document.querySelector('.success-icon');
+            successIcon.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            successIcon.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+
+            // Add click effects to buttons
+            const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.pointerEvents = 'none';
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>

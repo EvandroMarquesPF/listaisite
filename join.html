@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListAI - Entrar na Lista</title>
+    <meta name="description" content="Entre na lista compartilhada do ListAI">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://listai.app/join/">
+    <meta property="og:title" content="ListAI - Entrar na Lista">
+    <meta property="og:description" content="Entre na lista compartilhada do ListAI">
+    <meta property="og:image" content="https://listai.app/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://listai.app/join/">
+    <meta property="twitter:title" content="ListAI - Entrar na Lista">
+    <meta property="twitter:description" content="Entre na lista compartilhada do ListAI">
+    <meta property="twitter:image" content="https://listai.app/logo.png">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .join-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .join-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23E5E7EB" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .join-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(9, 67, 241, 0.1);
+            border: 1px solid rgba(9, 67, 241, 0.1);
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .join-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #000000 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 8px 16px rgba(30, 58, 138, 0.2);
+        }
+        
+        .join-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #0943F1;
+            margin: 0 0 12px;
+            letter-spacing: -0.02em;
+        }
+        
+        .join-subtitle {
+            font-size: 16px;
+            color: #6B7280;
+            margin: 0 0 32px;
+            line-height: 1.5;
+        }
+        
+        .join-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e3a8a 0%, #000000 100%);
+            color: white;
+            box-shadow: 0 8px 16px rgba(30, 58, 138, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary i,
+        .btn-primary span {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(30, 58, 138, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(30, 58, 138, 0.1);
+            color: #1e3a8a;
+            border: 2px solid rgba(30, 58, 138, 0.2);
+        }
+        
+        .btn-secondary i,
+        .btn-secondary span {
+            position: relative;
+            z-index: 2;
+            color: #1e3a8a;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(30, 58, 138, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary:hover i,
+        .btn-secondary:hover span {
+            color: #1e3a8a;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(9, 67, 241, 0.3);
+            border-radius: 50%;
+            border-top-color: #0943F1;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .code-display {
+            background: #f8f9fa;
+            border: 2px solid rgba(9, 67, 241, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 24px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0943F1;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        
+        .success-message {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #16a34a;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .join-card {
+                margin: 20px;
+                padding: 32px 24px;
+            }
+            
+            .join-title {
+                font-size: 24px;
+            }
+            
+            .join-logo {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="join-container">
+        <div class="join-card">
+            <div class="join-logo">
+                <i class="fas fa-pen" aria-hidden="true"></i>
+            </div>
+            <h1 class="join-title">Entrar na Lista</h1>
+            <p class="join-subtitle">Você foi convidado para colaborar em uma lista do ListAI</p>
+            
+            <div id="joinContent">
+                <div class="join-buttons">
+                    <button class="btn-primary" onclick="openApp()">
+                        <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                        Abrir no App
+                    </button>
+                    <button class="btn-secondary" onclick="showCode()">
+                        <i class="fas fa-key" aria-hidden="true"></i>
+                        Ver Código de Convite
+                    </button>
+                </div>
+            </div>
+            
+            <div id="codeDisplay" style="display: none;">
+                <div class="code-display" id="inviteCode">
+                    Carregando...
+                </div>
+                <div class="join-buttons">
+                    <button class="btn-primary" onclick="copyCode()">
+                        <i class="fas fa-copy" aria-hidden="true"></i>
+                        Copiar Código
+                    </button>
+                    <button class="btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        Voltar
+                    </button>
+                </div>
+            </div>
+            
+            <div id="messageArea"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get invite code from URL
+        function getInviteCode() {
+            const path = window.location.pathname;
+            const segments = path.split('/');
+            const joinIndex = segments.indexOf('join');
+            
+            if (joinIndex !== -1 && segments[joinIndex + 1]) {
+                return segments[joinIndex + 1];
+            }
+            return null;
+        }
+
+        // Show message
+        function showMessage(message, type = 'info') {
+            const messageArea = document.getElementById('messageArea');
+            const messageClass = type === 'error' ? 'error-message' : 'success-message';
+            messageArea.innerHTML = `<div class="${messageClass}">${message}</div>`;
+            
+            setTimeout(() => {
+                messageArea.innerHTML = '';
+            }, 5000);
+        }
+
+        // Open app with deep link
+        function openApp() {
+            const inviteCode = getInviteCode();
+            if (!inviteCode) {
+                showMessage('Código de convite não encontrado na URL', 'error');
+                return;
+            }
+
+            const deepLink = `listai://join/${inviteCode}`;
+            const fallbackUrl = 'https://play.google.com/store/apps/details?id=com.listai.app';
+            
+            // Try to open the app
+            window.location.href = deepLink;
+            
+            // Fallback to app store after a delay
+            setTimeout(() => {
+                if (confirm('O app não foi encontrado. Deseja baixar o ListAI?')) {
+                    window.open(fallbackUrl, '_blank');
+                }
+            }, 2000);
+        }
+
+        // Show invite code
+        function showCode() {
+            const inviteCode = getInviteCode();
+            if (!inviteCode) {
+                showMessage('Código de convite não encontrado na URL', 'error');
+                return;
+            }
+
+            document.getElementById('joinContent').style.display = 'none';
+            document.getElementById('codeDisplay').style.display = 'block';
+            document.getElementById('inviteCode').textContent = inviteCode;
+        }
+
+        // Copy code to clipboard
+        function copyCode() {
+            const inviteCode = document.getElementById('inviteCode').textContent;
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(inviteCode).then(() => {
+                    showMessage('Código copiado para a área de transferência!', 'success');
+                }).catch(() => {
+                    fallbackCopyTextToClipboard(inviteCode);
+                });
+            } else {
+                fallbackCopyTextToClipboard(inviteCode);
+            }
+        }
+
+        // Fallback copy method
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.top = '0';
+            textArea.style.left = '0';
+            textArea.style.position = 'fixed';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showMessage('Código copiado para a área de transferência!', 'success');
+            } catch (err) {
+                showMessage('Erro ao copiar código. Tente novamente.', 'error');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        // Go back to main view
+        function goBack() {
+            document.getElementById('joinContent').style.display = 'block';
+            document.getElementById('codeDisplay').style.display = 'none';
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            const inviteCode = getInviteCode();
+            if (!inviteCode) {
+                showMessage('URL inválida. Código de convite não encontrado.', 'error');
+            }
+        });
+    </script>
+</body>
+</html>
